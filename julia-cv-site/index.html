@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Юлія Жаркова — психотерапевтка, Позитивна психотерапія (Київ та онлайн)</title>
+  <meta name="description" content="Юлія Жаркова — сертифікована психотерапевтка у методі Позитивної психотерапії. Індивідуальна робота та робота з парами: онлайн і в кабінеті в центрі Києва.">
+  <meta name="theme-color" content="#FBF6EF">
+
+  <!-- Для красивого превʼю у месенджерах після публікації замініть шлях на повну адресу картинки, напр. https://ваш-сайт.ua/images/photo-yuliia.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Юлія Жаркова — психотерапевтка">
+  <meta property="og:description" content="Позитивна психотерапія: індивідуально та з парами, онлайн і в центрі Києва.">
+  <meta property="og:image" content="images/photo-yuliia.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌿%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..600&family=Nunito:wght@400..700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FBF6EF',   // фон сторінки
+            linen: '#F4EADF',   // фон другого рівня
+            blush: '#F3DCD6',   // ніжно-рожевий
+            sage: { DEFAULT: '#DCE6D8', deep: '#56735F' },
+            plum: { DEFAULT: '#6D4351', dark: '#52323C' }, // колір шарфа з фото
+            ink: '#3B2F2D',
+            muted: '#6A5A55',
+            line: '#DFCDD2'
+          },
+          fontFamily: {
+            serif: ['Literata', 'Georgia', '"Times New Roman"', 'serif'],
+            sans: ['Nunito', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    html body {
+      background: #FBF6EF; color: #3B2F2D;
+      font-family: Nunito, ui-sans-serif, system-ui, sans-serif;
+      font-size: 17px; line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    body h1, body h2, body h3 { font-family: Literata, Georgia, serif; font-weight: 500; }
+    :focus-visible { outline: 3px solid #6D4351; outline-offset: 3px; border-radius: 8px; }
+
+    .skip-link { position: absolute; left: -9999px; top: 0; background: #6D4351; color: #FBF6EF; padding: .6rem 1rem; border-radius: 0 0 12px 0; }
+    .skip-link:focus { left: 0; z-index: 100; }
+
+    /* Кнопки */
+    .btn-primary, .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      border-radius: 9999px; padding: .8rem 1.5rem; font-weight: 700; line-height: 1.2;
+      transition: background-color .2s, color .2s; text-align: center;
+    }
+    .btn-primary { background: #6D4351; color: #FBF6EF; border: 1.5px solid #6D4351; }
+    .btn-primary:hover { background: #52323C; border-color: #52323C; }
+    .btn-ghost { color: #6D4351; border: 1.5px solid #6D4351; background: transparent; }
+    .btn-ghost:hover { background: rgba(109, 67, 81, .10); }
+    .btn-text { color: #6D4351; font-weight: 700; padding: .6rem .4rem; text-decoration: underline; text-underline-offset: 4px; }
+    .btn-text:hover { color: #52323C; }
+
+    /* Фото: арка. CSS-фільтр додає ледь помітну теплоту й чіткість поверх уже оброблених файлів */
+    .arch { border-radius: 999px 999px 2rem 2rem; }
+    .photo-enhance { filter: saturate(1.04) contrast(1.02) brightness(1.01); }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .hero-photo { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+
+    /* Акордеон */
+    .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+    .acc-inner { min-height: 0; overflow: hidden; visibility: hidden; transition: visibility 0s linear .3s; }
+    .acc-item.is-open .acc-panel { grid-template-rows: 1fr; }
+    .acc-item.is-open .acc-inner { visibility: visible; transition-delay: 0s; }
+    .acc-chev { transition: transform .3s ease; }
+    .acc-item.is-open .acc-chev { transform: rotate(180deg); }
+
+    /* Галерея сертифікатів */
+    .g-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      height: 2.9rem; width: 2.9rem; border-radius: 9999px;
+      background: #FBF6EF; color: #6D4351; border: 1px solid rgba(109, 67, 81, .28);
+      box-shadow: 0 8px 20px -10px rgba(91, 60, 60, .5);
+      transition: background-color .2s;
+    }
+    .g-arrow:hover { background: #fff; }
+    .g-thumb { flex: none; width: 5.5rem; height: 4rem; border-radius: 14px; border: 2px solid transparent; background: #fff; padding: 3px; opacity: .75; transition: opacity .2s, border-color .2s; }
+    .g-thumb img { height: 100%; width: 100%; object-fit: cover; border-radius: 10px; }
+    .g-thumb:hover { opacity: 1; }
+    .g-thumb[aria-current="true"] { border-color: #6D4351; opacity: 1; }
+    #g-thumbs { scrollbar-width: thin; }
+    dialog#lightbox::backdrop { background: rgba(59, 47, 45, .78); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a href="#main" class="skip-link">Перейти до змісту</a>
+
+  <!-- ===== Шапка ===== -->
+  <header class="sticky top-0 z-40 border-b border-line bg-cream/95">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <a href="#top" class="font-serif text-xl text-ink">Юлія Жаркова</a>
+
+      <nav aria-label="Основна навігація" class="hidden items-center gap-8 text-[15px] font-semibold md:flex">
+        <a href="#about" class="hover:text-plum">Про мене</a>
+        <a href="#certificates" class="hover:text-plum">Сертифікати</a>
+        <a href="#services" class="hover:text-plum">Послуги</a>
+        <a href="#contract" class="hover:text-plum">Контракт</a>
+        <a href="#contacts" class="hover:text-plum">Контакти</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:block">
+          <a data-contact="booking" href="https://t.me/JuliaPsychologistBot" target="_blank" rel="noopener noreferrer" class="btn-primary !px-5 !py-2 text-[15px]">Записатися</a>
+        </div>
+        <button id="nav-toggle" type="button" class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-plum md:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Відкрити меню">
+          <svg id="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-nav" aria-label="Мобільна навігація" class="hidden border-t border-line bg-cream px-5 pb-4 pt-2 md:hidden">
+      <a href="#about" class="block py-2.5 font-semibold">Про мене</a>
+      <a href="#certificates" class="block py-2.5 font-semibold">Сертифікати</a>
+      <a href="#services" class="block py-2.5 font-semibold">Послуги</a>
+      <a href="#contract" class="block py-2.5 font-semibold">Контракт</a>
+      <a href="#contacts" class="block py-2.5 font-semibold">Контакти</a>
+      <a data-contact="booking" href="https://t.me/JuliaPsychologistBot" target="_blank" rel="noopener noreferrer" class="btn-primary mt-3 w-full">Записатися через бота</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== 1. Hero ===== -->
+    <section aria-labelledby="hero-title" class="relative overflow-hidden">
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-10 md:pt-14 lg:grid-cols-[1.15fr_.85fr] lg:pb-28">
+        <div class="order-2 lg:order-1">
+          <h1 id="hero-title" class="text-[2.6rem] leading-[1.08] tracking-tight text-ink sm:text-6xl">Юлія Жаркова</h1>
+          <p class="mt-3 font-serif text-xl leading-snug text-plum sm:text-2xl">Сертифікована психотерапевтка у методі Позитивної психотерапії · Магістр психології</p>
+          <p class="mt-6 max-w-xl text-lg text-muted">
+            Допомагаю подивитися на те, що відбувається у вашому житті, під іншим ракурсом:
+            переосмислити події, знайти власні ресурси та неочевидні рішення.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a data-contact="booking" href="https://t.me/JuliaPsychologistBot" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Записатися через бота
+            </a>
+            <a href="#contacts" class="btn-ghost">Усі контакти</a>
+          </div>
+          <ul class="mt-8 flex flex-wrap gap-2 text-[15px] text-muted">
+            <li class="rounded-xl border border-line bg-white/70 px-3 py-1.5">Онлайн та в кабінеті в центрі Києва</li>
+            <li class="rounded-xl border border-line bg-white/70 px-3 py-1.5">Індивідуально та з парами</li>
+            <li class="rounded-xl border border-line bg-white/70 px-3 py-1.5">Українська або російська</li>
+          </ul>
+        </div>
+
+        <div class="order-1 mx-auto w-full max-w-[17rem] sm:max-w-sm lg:order-2">
+          <div class="hero-photo relative">
+            <div class="arch absolute inset-0 translate-x-4 translate-y-4 border-2 border-plum/30" aria-hidden="true"></div>
+            <div class="absolute -left-5 bottom-12 h-24 w-24 rounded-full bg-sage" aria-hidden="true"></div>
+            <figure class="arch relative aspect-[4/5] overflow-hidden bg-blush">
+              <img src="images/photo-yuliia.jpg" width="760" height="1312" fetchpriority="high"
+                   alt="Юлія Жаркова — психотерапевтка"
+                   class="photo-enhance h-full w-full object-cover object-[50%_25%]">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2. Про мене ===== -->
+    <section id="about" aria-labelledby="about-title" class="rounded-t-[3rem] bg-linen py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="grid gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <h2 id="about-title" class="text-3xl md:text-4xl">Про мене</h2>
+            <p class="mt-5 font-serif text-xl leading-relaxed text-ink">
+              Я Юлія Жаркова — Магістр психології та сертифікована психотерапевтка у методі Позитивної психотерапії
+              (Certificate No. UKR-597-2025). Живу й працюю в Києві понад 20 років.
+            </p>
+          </div>
+          <div class="space-y-5 text-lg text-muted lg:col-span-7">
+            <p>
+              Я закінчила Майстер-курс Українського Інституту Позитивної психотерапії та є дійсною членкинею
+              Всесвітньої Асоціації Позитивної психотерапії (WAPP). У роботі спираюся на принципи методу,
+              поважаю індивідуальність людини та вірю, що внутрішні ресурси для змін можна знайти й у складних обставинах.
+            </p>
+            <p>
+              Працюю з підлітками й дорослими, з повагою ставлюся до різноманіття сексуальних орієнтацій
+              та гендерних ідентичностей. Поважаю досвід кожної людини незалежно від її життєвих обставин,
+              соціального становища, особливостей чи переконань.
+            </p>
+            <p>
+              Психотерапія для мене — спільний пошук розуміння того, що відбувається, чому ситуації повторюються
+              та як змінити звичні способи реагування. Допомагаю побачити зв’язок минулого досвіду з теперішніми
+              труднощами, краще зрозуміти почуття й потреби та знайти нові способи розв’язання проблем.
+            </p>
+            <p>
+              Не оцінюю й не нав’язую готових рішень. Разом ми створимо простір, де можна відкрито говорити про важливе,
+              бути почутими та поступово знаходити відповіді. Регулярно проходжу супервізії й дотримуюся професійних етичних принципів.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-5">
+          <!-- Освіта -->
+          <div class="rounded-[1.75rem] border border-line bg-white p-7 md:p-9 lg:col-span-3">
+            <h3 class="text-2xl">Освіта і навчання</h3>
+            <ol class="mt-6 space-y-6 border-l-2 border-sage pl-6">
+              <li class="relative">
+                <span class="absolute -left-[1.95rem] top-2 h-3 w-3 rounded-full bg-plum" aria-hidden="true"></span>
+                <p class="font-bold text-plum">1993–2001</p>
+                <p class="text-muted">Інженер-енергетик (1993–1999) і бухгалтер-економіст (1999–2001), ДДТУ.</p>
+              </li>
+              <li class="relative">
+                <span class="absolute -left-[1.95rem] top-2 h-3 w-3 rounded-full bg-plum" aria-hidden="true"></span>
+                <p class="font-bold text-plum">2021</p>
+                <p class="text-muted">Магістр психології, Міжрегіональна Академія управління персоналом (МАУП).</p>
+              </li>
+              <li class="relative">
+                <span class="absolute -left-[1.95rem] top-2 h-3 w-3 rounded-full bg-plum" aria-hidden="true"></span>
+                <p class="font-bold text-plum">2021–2022</p>
+                <p class="text-muted">Базовий курс Позитивної психотерапії (200+ годин), сертифікат № UKR.191-2023, Український інститут Позитивної психотерапії.</p>
+              </li>
+              <li class="relative">
+                <span class="absolute -left-[1.95rem] top-2 h-3 w-3 rounded-full bg-plum" aria-hidden="true"></span>
+                <p class="font-bold text-plum">2021–2025</p>
+                <p class="text-muted">Майстер-курс з Позитивної психотерапії (810 годин): World Association for Positive and Transcultural Psychotherapy та Український інститут Позитивної психотерапії. Керуючий тренер — Людмила Москаленко, канд. психол. наук.</p>
+              </li>
+              <li class="relative">
+                <span class="absolute -left-[1.95rem] top-2 h-3 w-3 rounded-full bg-plum" aria-hidden="true"></span>
+                <p class="font-bold text-plum">2024–2025</p>
+                <p class="text-muted">Курс «Пропедевтика психіатрії» (160 годин), Львівський психоаналітичний інститут ментального здоров’я.</p>
+              </li>
+              <li class="relative">
+                <span class="absolute -left-[1.95rem] top-2 h-3 w-3 rounded-full bg-plum" aria-hidden="true"></span>
+                <p class="font-bold text-plum">Також</p>
+                <p class="text-muted">«Позитивна сімейна психотерапія», майстер-тренер Н. Босовська.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="space-y-6 lg:col-span-2">
+            <!-- Практика -->
+            <div class="rounded-[1.75rem] border border-line bg-white p-7 md:p-9">
+              <h3 class="text-2xl">Практика і супервізії</h3>
+              <dl class="mt-6 space-y-5">
+                <div class="grid grid-cols-[5.5rem_1fr] items-baseline gap-4">
+                  <dt class="font-serif text-3xl text-plum">300+</dt>
+                  <dd class="text-muted">годин психотерапевтичної практики, групової та індивідуальної</dd>
+                </div>
+                <div class="grid grid-cols-[5.5rem_1fr] items-baseline gap-4">
+                  <dt class="font-serif text-3xl text-plum">140</dt>
+                  <dd class="text-muted">годин групових супервізій</dd>
+                </div>
+                <div class="grid grid-cols-[5.5rem_1fr] items-baseline gap-4">
+                  <dt class="font-serif text-3xl text-plum">25</dt>
+                  <dd class="text-muted">годин індивідуальних супервізій</dd>
+                </div>
+                <div class="grid grid-cols-[5.5rem_1fr] items-baseline gap-4">
+                  <dt class="font-serif text-3xl text-plum">100+</dt>
+                  <dd class="text-muted">годин інтервізійних груп</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Спільноти -->
+            <div class="rounded-[1.75rem] border border-line bg-white p-7 md:p-9">
+              <h3 class="text-2xl">Спільноти та конференції</h3>
+              <ul class="mt-5 space-y-3 text-muted">
+                <li>Дійсний член World Association for Positive and Transcultural Psychotherapy (WAPP)</li>
+                <li>Wiesbadener Akademie für Positive Psychotherapie, Німеччина</li>
+                <li>Українська асоціація Позитивної психотерапії</li>
+                <li>Українська спілка психотерапевтів (УСП)</li>
+                <li>Міжнародна конференція «Innovations and Prospects of World Science», Ванкувер, 2021</li>
+                <li>Міжнародна конференція з Позитивної психотерапії, Стамбул, 2024</li>
+              </ul>
+              <p class="mt-5 border-t border-line pt-4 text-[15px] text-muted">
+                Мови: українська й російська — вільно, англійська — A2.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. Сертифікати ===== -->
+    <section id="certificates" aria-labelledby="cert-title" class="py-20 md:py-28">
+      <div class="mx-auto max-w-5xl px-5">
+        <h2 id="cert-title" class="text-3xl md:text-4xl">Сертифікати та дипломи</h2>
+        <p class="mt-4 max-w-2xl text-lg text-muted">Натисніть на документ, щоб розглянути його ближче.</p>
+
+        <div id="gallery" class="mt-10" role="region" aria-roledescription="карусель" aria-label="Сертифікати та дипломи">
+          <div class="relative">
+            <div id="g-viewport" class="overflow-hidden rounded-[2rem] border border-line bg-white shadow-[0_18px_40px_-26px_rgba(91,60,60,.45)]" style="touch-action: pan-y;">
+              <ul id="g-track" class="flex transition-transform duration-500 ease-out"></ul>
+            </div>
+            <button id="g-prev" type="button" class="g-arrow left-2 md:-left-5" aria-label="Попередній документ">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button id="g-next" type="button" class="g-arrow right-2 md:-right-5" aria-label="Наступний документ">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="mt-6 flex items-start justify-between gap-6">
+            <div aria-live="polite">
+              <p id="g-title" class="font-serif text-xl leading-snug"></p>
+              <p id="g-meta" class="mt-1 text-muted"></p>
+            </div>
+            <p id="g-count" class="shrink-0 pt-1 text-sm text-muted"></p>
+          </div>
+
+          <div id="g-thumbs" class="relative mt-5 flex gap-3 overflow-x-auto pb-3"></div>
+          <noscript><p class="mt-4 text-muted">Щоб переглянути сертифікати, увімкніть JavaScript у браузері.</p></noscript>
+        </div>
+      </div>
+
+      <dialog id="lightbox" aria-label="Перегляд документа" class="m-auto max-w-[94vw] rounded-3xl bg-cream p-3 md:p-5">
+        <div class="flex items-start justify-between gap-4 pb-3">
+          <p id="lb-cap" class="font-serif text-lg leading-snug"></p>
+          <button id="lb-close" type="button" class="btn-ghost !px-4 !py-2 text-[15px]">Закрити</button>
+        </div>
+        <img id="lb-img" src="" alt="" class="mx-auto max-h-[78vh] max-w-full rounded-xl bg-white">
+      </dialog>
+    </section>
+
+    <!-- ===== 4. Послуги та підхід ===== -->
+    <section id="services" aria-labelledby="services-title" class="rounded-t-[3rem] bg-linen py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 id="services-title" class="text-3xl md:text-4xl">З чим можна прийти</h2>
+        <p class="mt-4 max-w-2xl text-lg text-muted">
+          Працюю із запитами, пов’язаними з тривогою, депресією, кризою сенсів та іншими труднощами.
+          Нижче — основні напрями.
+        </p>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          <article class="rounded-[1.75rem] border border-line bg-white p-7">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blush text-plum">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 class="mt-5 text-2xl">Внутрішній стан</h3>
+            <p class="mt-2 text-muted">Тривога, депресія та інші труднощі внутрішнього життя. Розбираємося, що стоїть за станом, і шукаємо, на що можна покладатися.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-line bg-white p-7">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-sage-deep">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </div>
+            <h3 class="mt-5 text-2xl">Сенси та вибір</h3>
+            <p class="mt-2 text-muted">Криза сенсів і відчуття, що звичні опори більше не працюють. Разом переосмислюємо події та знаходимо власні ресурси.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-line bg-white p-7">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-sage-deep">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="mt-5 text-2xl">Родини та пари</h3>
+            <p class="mt-2 text-muted">Труднощі в родині та у стосунках. Працюю індивідуально й з парами.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-line bg-white p-7">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blush text-plum">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h3 class="mt-5 text-2xl">Робота та соціальне життя</h3>
+            <p class="mt-2 text-muted">Труднощі на роботі та в соціальному оточенні. Допомагаю подивитися на ситуацію з іншого боку.</p>
+          </article>
+        </div>
+
+        <!-- Підхід -->
+        <div class="mt-6 rounded-[2rem] bg-sage/70 p-8 md:p-12">
+          <div class="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+            <h3 class="text-2xl md:text-3xl">Позитивна психотерапія</h3>
+            <div class="space-y-4 text-lg text-ink/85">
+              <p>
+                Метод Позитивної психотерапії, заснований Н. Пезешкіаном, спирається на те, що в людині вже є, і розглядає життя в чотирьох сферах — тіло, діяльність, контакти та сенси.
+              </p>
+              <p>
+                Моя робота — це розмова, у якій ми разом складаємо запитання, що допомагають побачити ваше
+                життя під іншим кутом.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Формат -->
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <div class="rounded-[1.75rem] border border-line bg-white p-7">
+            <h3 class="text-xl">Формат</h3>
+            <p class="mt-2 text-muted">Індивідуальні консультації (60 хв) та робота з парами (90 хв): онлайн або особисто в кабінеті в центрі Києва.</p>
+          </div>
+          <div class="rounded-[1.75rem] border border-line bg-white p-7">
+            <h3 class="text-xl">Ритм</h3>
+            <p class="mt-2 text-muted">Кількість і періодичність сесій узгоджуються індивідуально — відповідно до запиту, потреб і цілей.</p>
+          </div>
+          <div class="rounded-[1.75rem] border border-line bg-white p-7">
+            <h3 class="text-xl">Мова</h3>
+            <p class="mt-2 text-muted">Українська або російська.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. Контракт ===== -->
+    <section id="contract" aria-labelledby="contract-title" class="py-20 md:py-28">
+      <div class="mx-auto max-w-4xl px-5">
+        <h2 id="contract-title" class="text-3xl md:text-4xl">Психотерапевтичний контракт</h2>
+        <p class="mt-4 max-w-2xl text-lg text-muted">
+          Інформована згода: правила, за якими ми працюємо. Прочитайте їх перед першою сесією —
+          так спокійніше обом, бо зрозуміло, чого очікувати.
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a href="contract.html" target="_blank" rel="noopener" class="btn-primary">Відкрити повний текст</a>
+          <a href="contract.pdf" download class="btn-ghost">Завантажити PDF</a>
+          <button id="acc-toggle-all" type="button" class="btn-text">Розгорнути все</button>
+        </div>
+
+        <div id="accordion" class="mt-8 space-y-3">
+          <div class="acc-item rounded-3xl border border-line bg-white">
+            <h3>
+              <button type="button" id="acc-btn-1" class="acc-btn flex w-full items-center justify-between gap-4 rounded-3xl px-6 py-5 text-left font-serif text-xl" aria-expanded="false" aria-controls="acc-panel-1">
+                <span>Формат сесій</span>
+                <svg class="acc-chev shrink-0 text-plum" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div id="acc-panel-1" role="region" aria-labelledby="acc-btn-1" class="acc-panel">
+              <div class="acc-inner">
+                <ul class="space-y-3 px-6 pb-6 text-muted">
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Індивідуальна психотерапевтична сесія триває 60 хвилин, сесія для пари — 90 хвилин. Мова роботи узгоджується індивідуально.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Кількість і періодичність сесій узгоджуються індивідуально. Після сесії можливе надання домашнього завдання.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Онлайн-робота (Telegram / Viber / Skype / WhatsApp) за правилами та відповідальністю не відрізняється від очної психотерапії.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">На час сесії обидві сторони зобов’язуються забезпечити належні умови для роботи: уважність, по можливості — перебування наодинці.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Заборонено перебувати на сесії у стані алкогольного сп’яніння або під впливом речовин, що змінюють свідомість (наркотичні, заспокійливі), якщо вони не призначені лікарем для постійного приймання. Психотерапевтична робота у зміненому стані свідомості є небезпечною.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Усе, що відбувається під час консультації — від вітання до завершення — є частиною психологічної роботи.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item rounded-3xl border border-line bg-white">
+            <h3>
+              <button type="button" id="acc-btn-2" class="acc-btn flex w-full items-center justify-between gap-4 rounded-3xl px-6 py-5 text-left font-serif text-xl" aria-expanded="false" aria-controls="acc-panel-2">
+                <span>Вартість і оплата</span>
+                <svg class="acc-chev shrink-0 text-plum" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div id="acc-panel-2" role="region" aria-labelledby="acc-btn-2" class="acc-panel">
+              <div class="acc-inner">
+                <ul class="space-y-3 px-6 pb-6 text-muted">
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Вартість однієї консультації — 35 євро (або гривневий еквівалент).</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Оплата здійснюється протягом 24 годин після завершення консультації. Реквізити для оплати (картка для України, PayPal для інших країн) надсилаються після підтвердження запису.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Будь-які зміни (оплата, час, формат роботи, спосіб контакту) обговорюються заздалегідь та узгоджуються обома сторонами.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item rounded-3xl border border-line bg-white">
+            <h3>
+              <button type="button" id="acc-btn-3" class="acc-btn flex w-full items-center justify-between gap-4 rounded-3xl px-6 py-5 text-left font-serif text-xl" aria-expanded="false" aria-controls="acc-panel-3">
+                <span>Конфіденційність і межі</span>
+                <svg class="acc-chev shrink-0 text-plum" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div id="acc-panel-3" role="region" aria-labelledby="acc-btn-3" class="acc-panel">
+              <div class="acc-inner">
+                <ul class="space-y-3 px-6 pb-6 text-muted">
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Уся інформація, надана клієнтом, є строго конфіденційною і не передається третім особам. Винятком є супервізія, під час якої особисті дані клієнта не розкриваються.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">На період дії контракту не допускається зміна соціальних ролей між клієнтом і психотерапевтом, зокрема вступ у дружні, сімейні або ділові відносини.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Клієнт має право отримувати інформацію про методи роботи психотерапевта, його освіту та професійний досвід.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Психотерапевт використовує свій професійний та життєвий досвід для досягнення позитивного результату психотерапевтичної роботи.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Клієнт має право зупиняти будь-які звернення, запитання або пропозиції, які викликають дискомфорт. Уся інформація в терапії є важливою та має сенс.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item rounded-3xl border border-line bg-white">
+            <h3>
+              <button type="button" id="acc-btn-4" class="acc-btn flex w-full items-center justify-between gap-4 rounded-3xl px-6 py-5 text-left font-serif text-xl" aria-expanded="false" aria-controls="acc-panel-4">
+                <span>Правила сеттінгу</span>
+                <svg class="acc-chev shrink-0 text-plum" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div id="acc-panel-4" role="region" aria-labelledby="acc-btn-4" class="acc-panel">
+              <div class="acc-inner">
+                <ul class="space-y-3 px-6 pb-6 text-muted">
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Правила сеттінгу починають діяти з другої сесії:
+                    <ul class="mt-2 space-y-1.5">
+                      <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">скасування або перенесення можливе не пізніше ніж за 24 години;</li>
+                      <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">у разі запізнення психотерапевта втрачені хвилини компенсуються.</li>
+                    </ul>
+                  </li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">У разі форс-мажорних обставин (воєнні дії, відсутність світла чи інтернету, стихійні лиха) можливі інші домовленості.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">У разі хвороби рекомендується повідомляти заздалегідь. Турбота про власне здоров’я є важливою.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Психотерапевт може вести нотатки під час сесії, фіксуючи важливі моменти. Клієнт самостійно вирішує доцільність власних записів.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Саморозкриття сприяє прискоренню терапевтичного процесу. Ритм, темп і стиль роботи є індивідуальними.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item rounded-3xl border border-line bg-white">
+            <h3>
+              <button type="button" id="acc-btn-5" class="acc-btn flex w-full items-center justify-between gap-4 rounded-3xl px-6 py-5 text-left font-serif text-xl" aria-expanded="false" aria-controls="acc-panel-5">
+                <span>Завершення та зміни</span>
+                <svg class="acc-chev shrink-0 text-plum" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div id="acc-panel-5" role="region" aria-labelledby="acc-btn-5" class="acc-panel">
+              <div class="acc-inner">
+                <ul class="space-y-3 px-6 pb-6 text-muted">
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">У разі бажання завершити терапевтичні відносини клієнт повідомляє про це за одну сесію. Завершення є важливою фазою терапії та розглядається як можливість змінити способи взаємодії із собою та з іншими.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Після завершення етапу психотерапії можливе переконтрактування за бажанням клієнта.</li>
+                  <li class="relative pl-5 before:absolute before:left-0 before:top-[.72em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-deep">Договір може бути змінений або доповнений за взаємною згодою сторін.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-6 text-[15px] text-muted">Контракт набирає чинності після ознайомлення та усної згоди клієнта.</p>
+      </div>
+    </section>
+
+    <!-- ===== 6. Контакти ===== -->
+    <section id="contacts" aria-labelledby="contacts-title" class="rounded-t-[3rem] bg-linen py-20 md:py-28">
+      <div class="mx-auto max-w-5xl px-5">
+        <h2 id="contacts-title" class="text-3xl md:text-4xl">Контакти</h2>
+        <p class="mt-4 max-w-2xl text-lg text-muted">
+          Напишіть мені у Telegram або скористайтеся будь-яким зручним способом зв’язку.
+        </p>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2">
+          <a data-contact="booking" href="https://t.me/JuliaPsychologistBot" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-5 rounded-[1.75rem] bg-plum p-6 text-cream transition-colors hover:bg-plum-dark sm:col-span-2">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cream/15" aria-hidden="true">✦</span>
+            <span>
+              <span class="block font-serif text-xl">Записатися через бота</span>
+              <span class="block text-cream/80">@JuliaPsychologistBot</span>
+            </span>
+          </a>
+          <a data-contact="telegram" href="#" class="group flex items-center gap-5 rounded-[1.75rem] bg-plum p-6 text-cream transition-colors hover:bg-plum-dark sm:col-span-2">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cream/15">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </span>
+            <span>
+              <span class="block font-serif text-xl">Telegram: написати Юлії</span>
+              <span class="block text-cream/80" data-contact-text="telegram">@fox_joy</span>
+            </span>
+          </a>
+
+          <a data-contact="instagram" href="#" class="flex items-center gap-5 rounded-[1.75rem] border border-line bg-white p-6 transition-colors hover:border-plum/50">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blush text-plum">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </span>
+            <span>
+              <span class="block font-serif text-xl">Instagram</span>
+              <span class="block text-muted" data-contact-text="instagram">@zhara_j</span>
+            </span>
+          </a>
+
+          <a data-contact="facebook" href="#" class="flex items-center gap-5 rounded-[1.75rem] border border-line bg-white p-6 transition-colors hover:border-plum/50">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sage text-sage-deep">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </span>
+            <span>
+              <span class="block font-serif text-xl">Facebook</span>
+              <span class="block text-muted" data-contact-text="facebook">Facebook</span>
+            </span>
+          </a>
+
+          <a data-contact="email" href="#" class="flex items-center gap-5 rounded-[1.75rem] border border-line bg-white p-6 transition-colors hover:border-plum/50">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sage text-sage-deep">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-serif text-xl">Електронна пошта</span>
+              <span class="block break-words text-muted" data-contact-text="email">zyulia@yahoo.com</span>
+            </span>
+          </a>
+
+          <a data-contact="phone" href="#" class="flex items-center gap-5 rounded-[1.75rem] border border-line bg-white p-6 transition-colors hover:border-plum/50">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blush text-plum">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span>
+              <span class="block font-serif text-xl">Телефон</span>
+              <span class="block text-muted" data-contact-text="phone">+380 95 354 50 50</span>
+            </span>
+          </a>
+          <a href="https://wapp.member365.org/sharingnetwork/myProfile#profile_personal" target="_blank" rel="noopener noreferrer" class="text-plum underline underline-offset-4">Профіль у WAPP</a>
+          <a href="https://wapp.member365.org/mms/api/viewMembershipTemplate/b2AR9ssUYrirGD83CrMxKeV6o0wPBLBN" target="_blank" rel="noopener noreferrer" class="text-plum underline underline-offset-4">Членський сертифікат WAPP (English)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-linen pb-12 pt-4">
+    <div class="mx-auto max-w-5xl border-t border-line px-5 pt-8 text-[15px] text-muted">
+      <p class="font-serif text-lg text-ink">Юлія Жаркова, психотерапевтка</p>
+      <p class="mt-2 max-w-2xl">
+        Психотерапія не замінює медичну допомогу. Якщо вам або комусь поруч загрожує небезпека, телефонуйте 112.
+      </p>
+      <p class="mt-4">© <span id="year">2026</span> Юлія Жаркова</p>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ============================================================
+       КОНТАКТИ — заповніть тут, і всі посилання на сторінці оновляться.
+       ============================================================ */
+    const CONTACTS = {
+      booking:   { href: 'https://t.me/JuliaPsychologistBot', text: '@JuliaPsychologistBot' },
+      telegram:  { href: 'https://t.me/fox_joy', text: '@fox_joy' },
+      instagram: { href: 'https://instagram.com/zhara_j', text: '@zhara_j' },
+      facebook:  { href: 'https://www.facebook.com/profile.php?id=100001833233456', text: 'Профіль Юлії' },
+      email:     { href: 'mailto:zyulia@yahoo.com', text: 'zyulia@yahoo.com' },
+      phone:     { href: 'tel:+380953545050', text: '+380 95 354 50 50' }
+    };
+
+    /* ============================================================
+       СЕРТИФІКАТИ — порядок слайдів у каруселі.
+       ============================================================ */
+    const CERTS = [
+      { src: 'images/cert-wapp-master.jpg',
+        title: 'Certified Positive Psychotherapist (Master Training)',
+        meta: 'WAPP, Вісбаден, 24.11.2025. 810 годин навчання, сертифікат № UKR-597-2025',
+        alt: 'Міжнародний сертифікат WAPP: Certified Positive Psychotherapist, Yuliia Zharkova' },
+      { src: 'images/cert-uapp-master.jpg',
+        title: 'Сертифікат психотерапевта: Позитивна психотерапія Н. Пезешкіана',
+        meta: 'УАПП та УІПП, 810 годин, навчання 2021–2025, видано 11.2025',
+        alt: 'Сертифікат психотерапевта за напрямом Позитивна психотерапія, Юлія Жаркова' },
+      { src: 'images/diploma-master.jpg',
+        title: 'Диплом Магістра психології',
+        meta: 'Міжрегіональна Академія управління персоналом, 20 грудня 2021',
+        alt: 'Диплом магістра за спеціальністю «Психологія», Юлія Жаркова' },
+      { src: 'images/cert-psychiatry.jpg',
+        title: 'Пропедевтика психіатрії',
+        meta: 'Львівський психоаналітичний інститут ментального здоров’я, 2024–2025, 160 годин',
+        alt: 'Сертифікат про завершення проєкту «Пропедевтика психіатрії», Юлія Жаркова' },
+      { src: 'images/cert-transculturality.jpg',
+        title: 'Семінар «Транскультуральність психотерапії: можливості у часи випробувань»',
+        meta: 'УАПП та УІПП, онлайн, 4 жовтня 2023, 2 години',
+        alt: 'Сертифікат участі у семінарі «Транскультуральність психотерапії»' },
+      { src: 'images/cert-wapp-membership.jpg',
+        title: 'Членство у WAPP',
+        meta: 'Full Membership 2027, чинний до кінця 2027 року. Дата вступу: 20.09.2026, Member No. 2031.',
+        alt: 'Сертифікат Full Membership 2027 Всесвітньої асоціації Позитивної та транскультуральної психотерапії на ім’я Yuliia Zharkova' },
+      { src: 'images/cert-vancouver.jpg',
+        title: 'Конференція «Innovations and Prospects of World Science»',
+        meta: 'Ванкувер, 4–6 листопада 2021, 24 години (0,8 ECTS)',
+        alt: 'Сертифікат учасниці міжнародної конференції у Ванкувері, 2021' },
+      { src: 'images/cert-seminar-2017.jpg',
+        title: 'Семінар «Страх. Тривога. Депресія. Методи терапії та самодопомоги»',
+        meta: 'Центр тренінгів «New People», Київ, 5 лютого 2017',
+        alt: 'Сертифікат семінару «Страх. Тривога. Депресія. Методи терапії і самодопомоги», 2017' }
+    ];
+
+    /* ---------- 1. Контакти ---------- */
+    const external = new Set(['booking', 'telegram', 'instagram', 'facebook']);
+    document.querySelectorAll('[data-contact]').forEach((el) => {
+      const c = CONTACTS[el.dataset.contact];
+      if (!c) return;
+      el.setAttribute('href', c.href);
+      if (external.has(el.dataset.contact)) {
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+    document.querySelectorAll('[data-contact-text]').forEach((el) => {
+      const c = CONTACTS[el.dataset.contactText];
+      if (c) el.textContent = c.text;
+    });
+    Object.entries(CONTACTS).forEach(([key, c]) => {
+      if (/YOUR_|your\.email|example\.com|0{6}/.test(c.href)) {
+        console.warn('[Контакти] Замініть тимчасове значення для «' + key + '» у блоку CONTACTS.');
+      }
+    });
+
+    /* ---------- 2. Мобільне меню ---------- */
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    function setNav(open) {
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Закрити меню' : 'Відкрити меню');
+      mobileNav.classList.toggle('hidden', !open);
+      iconMenu.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+    }
+    navToggle.addEventListener('click', () => setNav(navToggle.getAttribute('aria-expanded') !== 'true'));
+    mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setNav(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        setNav(false);
+        navToggle.focus();
+      }
+    });
+
+    /* ---------- 3. Карусель сертифікатів ---------- */
+    const gallery = document.getElementById('gallery');
+    const viewport = document.getElementById('g-viewport');
+    const track = document.getElementById('g-track');
+    const thumbsEl = document.getElementById('g-thumbs');
+    const titleEl = document.getElementById('g-title');
+    const metaEl = document.getElementById('g-meta');
+    const countEl = document.getElementById('g-count');
+    const total = CERTS.length;
+    let index = 0;
+    let lastSwipe = 0;
+
+    CERTS.forEach((c, i) => {
+      const li = document.createElement('li');
+      li.className = 'flex h-[22rem] min-w-full shrink-0 items-center justify-center p-4 sm:h-[30rem] md:h-[36rem] md:p-8';
+      li.setAttribute('role', 'group');
+      li.setAttribute('aria-roledescription', 'слайд');
+      li.setAttribute('aria-label', (i + 1) + ' з ' + total);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.dataset.open = String(i);
+      btn.className = 'flex h-full w-full cursor-zoom-in items-center justify-center';
+      btn.setAttribute('aria-label', 'Збільшити: ' + c.title);
+      const img = document.createElement('img');
+      img.src = c.src;
+      img.alt = c.alt;
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      img.draggable = false;
+      img.className = 'max-h-full max-w-full rounded-lg object-contain';
+      btn.appendChild(img);
+      li.appendChild(btn);
+      track.appendChild(li);
+
+      const t = document.createElement('button');
+      t.type = 'button';
+      t.className = 'g-thumb';
+      t.setAttribute('aria-label', 'Показати: ' + c.title);
+      const ti = document.createElement('img');
+      ti.src = c.src;
+      ti.alt = '';
+      ti.loading = 'lazy';
+      t.appendChild(ti);
+      t.addEventListener('click', () => go(i));
+      thumbsEl.appendChild(t);
+    });
+
+    const slides = Array.from(track.children);
+    const thumbs = Array.from(thumbsEl.children);
+
+    function go(i) {
+      index = (i + total) % total;
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+      slides.forEach((s, k) => {
+        const active = k === index;
+        s.toggleAttribute('inert', !active);
+        s.setAttribute('aria-hidden', String(!active));
+      });
+      thumbs.forEach((t, k) => {
+        if (k === index) t.setAttribute('aria-current', 'true');
+        else t.removeAttribute('aria-current');
+      });
+      const cur = thumbs[index];
+      thumbsEl.scrollTo({ left: cur.offsetLeft - (thumbsEl.clientWidth - cur.clientWidth) / 2, behavior: 'smooth' });
+      titleEl.textContent = CERTS[index].title;
+      metaEl.textContent = CERTS[index].meta;
+      countEl.textContent = (index + 1) + ' з ' + total;
+    }
+
+    document.getElementById('g-prev').addEventListener('click', () => go(index - 1));
+    document.getElementById('g-next').addEventListener('click', () => go(index + 1));
+    gallery.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { go(index - 1); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { go(index + 1); e.preventDefault(); }
+    });
+
+    // свайп
+    let startX = null, startY = null;
+    viewport.addEventListener('pointerdown', (e) => { startX = e.clientX; startY = e.clientY; });
+    viewport.addEventListener('pointercancel', () => { startX = null; });
+    viewport.addEventListener('pointerup', (e) => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      startX = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        lastSwipe = performance.now();
+        go(dx < 0 ? index + 1 : index - 1);
+      }
+    });
+    viewport.addEventListener('click', (e) => {
+      if (performance.now() - lastSwipe < 400) { e.stopPropagation(); e.preventDefault(); }
+    }, true);
+
+    // збільшення
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-cap');
+    track.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-open]');
+      if (!b) return;
+      const c = CERTS[Number(b.dataset.open)];
+      lbImg.src = c.src;
+      lbImg.alt = c.alt;
+      lbCap.textContent = c.title;
+      lb.showModal();
+    });
+    document.getElementById('lb-close').addEventListener('click', () => lb.close());
+    lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+
+    go(0);
+
+    /* ---------- 4. Акордеон контракту ---------- */
+    const accItems = Array.from(document.querySelectorAll('#accordion .acc-item'));
+    const toggleAll = document.getElementById('acc-toggle-all');
+    function setOpen(item, open) {
+      item.classList.toggle('is-open', open);
+      item.querySelector('.acc-btn').setAttribute('aria-expanded', String(open));
+    }
+    function syncToggleAll() {
+      toggleAll.textContent = accItems.every((i) => i.classList.contains('is-open')) ? 'Згорнути все' : 'Розгорнути все';
+    }
+    accItems.forEach((item) => {
+      const btn = item.querySelector('.acc-btn');
+      btn.addEventListener('click', () => {
+        setOpen(item, btn.getAttribute('aria-expanded') !== 'true');
+        syncToggleAll();
+      });
+    });
+    toggleAll.addEventListener('click', () => {
+      const allOpen = accItems.every((i) => i.classList.contains('is-open'));
+      accItems.forEach((i) => setOpen(i, !allOpen));
+      syncToggleAll();
+    });
+
+    /* ---------- 5. Рік у футері ---------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
